@@ -84,3 +84,23 @@ catkin_make install    # (optional)
 - `rostopic hz [topic]` - see the rate of data being published
 - `rosrun rqt_plot rqt_plot` - plot the data being published on topics
 ## [ROS Services and Parameters](https://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams)
+- `rosservice list` - print information about active services
+- `rosservice call [service] [args]` - call the service with the provided args
+- `rosservice type [service]` - print the service type
+- `rosservice find [service_type]` - find services by service type
+- `rosservice uri` - print service ROSRPC uri
+
+rossrv is a command-line tool for displaying information about ROS Service types.
+- `rossrv show` - show service description
+- `rossrv list` - list all services
+- `rossrv package` - list services in a package
+- `rossrv packages` - list packages that contain services
+- `rssrv <command> -h` - for more detailed usage
+
+rosparam allows you to store and manipulate data on the ROS Parameter Server
+- `rosparam set [param_name] [value]` - set parameter, have to call service `/clear` for change to take effect
+- `rosparam get [param_name]` - get parameter, replace param_name with `/` to get all parameters in the server
+- `rosparam load [file_name] [namespace]` - load parameters from file, namespace optional
+- `rosparam dump [file_name] [namespace]` - dump parameters to file, namespace optional
+
+
