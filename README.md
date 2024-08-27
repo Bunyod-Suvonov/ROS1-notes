@@ -72,3 +72,15 @@ catkin_make install    # (optional)
 - `rosnode ping [node_name]` - test if node is up (node closed through `ctrl-c` doesn't respond)
 
 ## [ROS Topics](https://wiki.ros.org/ROS/Tutorials/UnderstandingTopics)
+- `rosrun rqt_graph rqt_graph` - visualize nodes and topics, nodes are highlighted in blue and green colors, topics are highlighted in red color
+- `rostopic -h` - help option to get the available sub-commands for rostopic
+- `rostopic echo [topic]` - show the data published on a topic
+- `rostopic list -v` - show the list of topics in verbose mode (includes number of publishers and subscribers in each topic)
+- `rostopic type [topic]` - show the message type of the topic
+- `rosmsg show [message_type]` - see the details of the message type
+- `rostopic pub [topic] [msg_type] [args]` - publish data onto a topic. Example:
+    - `rostopic pub -1 /turtle/cmd_vel geometry_msgs/Twist -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, 1.8]'` - publish 1 message. `--` needed to tell that following are not options, mainly used when the following arguments contain dash '-'.
+    - `rostopic pub /turtle/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'` - publish commands at a rate of 1 Hz onto the topic.
+- `rostopic hz [topic]` - see the rate of data being published
+- `rosrun rqt_plot rqt_plot` - plot the data being published on topics
+## [ROS Services and Parameters](https://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams)
